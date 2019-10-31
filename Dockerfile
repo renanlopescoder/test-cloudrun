@@ -15,8 +15,10 @@ COPY . ./
 # Install dependencies
 RUN npm install -g serve
 RUN npm install --only=production
+
+# Build production files
 RUN npm run build
 
 
-# Start the service
+# Start the service and expose the build folder using serve
 CMD serve -s build
